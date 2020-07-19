@@ -10,6 +10,36 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <header class= "user_header">
+        <div class= "header-content">
+          <%= link_to "SixPack", root_path, class: "logo" %>
+          <ul class= "flex">
+            <li><%= link_to "All Work Out", work_outs_path %></li>
+            <li><%= link_to "Friend's Work Out" %></li>
+            <li><%= link_to "My Page", user_path(current_user) %></li>
+            <li><%= link_to "Search" %></li>
+            <li><%= link_to "Write Work Out", new_work_out_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </header>
+    <% else %>
+      <header class= "user_header">
+        <div class= "header-content">
+          <%= link_to "SixPack", root_path, class: "logo" %>
+          <ul class= "flex">
+            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to "Sign in", new_user_session_path %></li>
+          </ul>
+        </div>
+      </header>
+    <% end %>
+
+  <main>
     <%= yield %>
+  </main>
+
+  <footer>Copyright © Wasaki Ritsuya </footer>
   </body>
 </html>

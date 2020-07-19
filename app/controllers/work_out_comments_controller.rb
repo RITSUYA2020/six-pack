@@ -1,0 +1,2 @@
+class WorkOutCommentsController < ApplicationController
+end
