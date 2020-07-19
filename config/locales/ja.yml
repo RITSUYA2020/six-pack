@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: "メールアドレス"
+        name: "名前"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"
+        sex: "性別"
+  enums:
+    user:
+      sex:
+        unknown: '答えない'
+        male: '男性'
+        female: '女性'
+        others: 'その他'

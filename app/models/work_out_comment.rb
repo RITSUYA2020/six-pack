@@ -1,0 +1,2 @@
+class WorkOutComment < ApplicationRecord
+end

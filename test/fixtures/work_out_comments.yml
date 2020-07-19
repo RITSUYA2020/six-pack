@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  work_out_id: 1
+  comment: MyText
+
+two:
+  work_out_id: 1
+  comment: MyText
