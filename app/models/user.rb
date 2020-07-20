@@ -6,8 +6,10 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  has_many :work_outs, dependent: :destroy
+  has_many :work_outs
   has_many :favorites, dependent: :destroy
+  #ユーザーがファボしたツイートを直接アソシエーションで取得するため
+  has_many :favorite_work_outs, through: :favorites, source: :work_out
 
   enum sex: { unknown: 0, male: 1, female: 2, others: 9 }
 

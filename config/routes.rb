@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :users, except: %i[index create new]
-  resources :work_outs
+  get 'users/:user_id/favorites' => 'favorites#show', as: 'user_favorites'
+  resources :users, except: [:index, :create, :new]
+  resources :work_outs do
+  	resource :favorites, only: [:create, :destroy]
+  end
 end
