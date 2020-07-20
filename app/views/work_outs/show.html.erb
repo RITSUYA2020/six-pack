@@ -1,1 +1,15 @@
 <h1>WorkOuts#show</h1>
+<%= @work_out.created_at.strftime("%Y/%m/%d %H:%M") %>
+<%= @work_out.time %>分
+<%= @work_out.muscle_group_i18n %>
+<%= @work_out.equipment %>
+<%= @work_out.body %>
+<%= @work_out.effect_i18n %>
+<%= @work_out.place_i18n %>
+<%= attachment_image_tag @work_out, :before_image, format: "jpeg", fallback: "no-image.jpg" %>
+<%= attachment_image_tag @work_out, :after_image, format: "jpeg", fallback: "no-image.jpg" %>
+
+<% if @user == current_user %>
+	<%=link_to "編集する", edit_work_out_path(@work_out) %>
+	<%=link_to "削除する", work_out_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+<% end %>
