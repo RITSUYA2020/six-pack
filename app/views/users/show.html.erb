@@ -1,1 +1,84 @@
-<h1>Users#show</h1>
+<h1>My Page</h1>
+<%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no-image.jpg", class: "rounded-circle" %>
+<%= @user.name %>
+<% if @user == current_user %>
+	<%= link_to "プロフィール編集", edit_user_path(current_user) %>
+<% end %>
+
+<div class= "row">
+		<% @work_outs.each do |work_out| %>
+			<!-- work_out本体 -->
+			<div class= "col-md-8 col-md-offset-2 my-3 box">
+				<!-- ヘッダー -->
+				<div class= "row justify-content-center header">
+					<div class="col-2 mt-1">
+					</div>
+					<div class="col-6 pl-0 align-self-center text-left">
+							<%= attachment_image_tag work_out.user, :profile_image, format: "jpeg", fallback: "no-image.jpg", class: "rounded-circle" %>
+							<%= work_out.user.name %>
+					</div>
+					<div class="col-4 pl-0 align-self-center text-right">
+						<%= work_out.created_at.strftime("%Y/%m/%d %H:%M") %>
+					</div>
+				</div>
+
+				<div class="row">
+					<!-- 左半分 -->
+					<div class="col-md-6 my-3">
+						<%= attachment_image_tag work_out, :after_image, format: "jpeg", fallback: "no-image.jpg", class: "rounded" %>
+					</div>
+					<!-- 右半分 -->
+					<div class="col-md-6">
+						<div class="row my-2 border-bottom">
+							<!-- 筋トレの簡易情報について -->
+							<div class="col-2">
+								<i class="fas fa-stopwatch"></i>
+							</div>
+							<div class="col-10">
+								<%= work_out.time %>分
+							</div>
+							<div class="col-2">
+								<i class="fas fa-running"></i>
+							</div>
+							<div class="col-10">
+								<%= work_out.muscle_group_i18n %>
+							</div>
+							<div class="col-2">
+								<i class="fas fa-level-up-alt"></i>
+							</div>
+							<div class="col-10">
+								<%= work_out.effect_i18n %>
+							</div>
+							<div class="col-2">
+								<i class="fas fa-map-marker-alt"></i>
+							</div>
+							<div class="col-10">
+								<%= work_out.place_i18n %>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<!-- コメント数 -->
+							<div class="col">
+								<i class="fas fa-comment"></i>
+							</div>
+							<!-- いいね数 -->
+							<div class="col">
+								<i class="fas fa-heart"></i>
+							</div>
+						</div>
+						<div class="row -2">
+							<!-- タグ -->
+							<div class="col">
+							</div>
+						</div>
+					</div>
+					<div class="row my-3">
+						<!-- 詳細ページへのボタン -->
+						<div class="col-12 text-center">
+							<%=link_to "Read More!", work_out_path(work_out) %>
+						</div>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
