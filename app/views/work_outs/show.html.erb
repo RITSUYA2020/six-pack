@@ -1,15 +1,182 @@
-<h1>WorkOuts#show</h1>
-<%= @work_out.created_at.strftime("%Y/%m/%d %H:%M") %>
-<%= @work_out.time %>分
-<%= @work_out.muscle_group_i18n %>
-<%= @work_out.equipment %>
-<%= @work_out.body %>
-<%= @work_out.effect_i18n %>
-<%= @work_out.place_i18n %>
-<%= attachment_image_tag @work_out, :before_image, format: "jpeg", fallback: "no-image.jpg" %>
-<%= attachment_image_tag @work_out, :after_image, format: "jpeg", fallback: "no-image.jpg" %>
+<div class="wrap">
+	<div class="container">
+		<div class="row">
+			<div class="col-8 col-offset-2">
+				<h1>WorkOuts#show</h1>
+					<div class="row justify-content-center">
+						<!--ユーザー情報-->
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-6">
+							<div class="row">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>日時</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.created_at.strftime("%Y/%m/%d %H:%M") %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>時間</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.time %>分
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>筋群</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.muscle_group_i18n %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>器具</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.equipment %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>内容</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.body %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>効果</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.effect_i18n %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>場所</h3>
+										</div>
+										<div class="card-body">
+											<%= @work_out.place_i18n %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>ビフォー画像</h3>
+										</div>
+										<div class="card-body">
+											<%= attachment_image_tag @work_out, :before_image, format: "jpeg", fallback: "no-image.jpg" %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>アフター画像</h3>
+										</div>
+										<div class="card-body">
+											<%= attachment_image_tag @work_out, :after_image, format: "jpeg", fallback: "no-image.jpg" %>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col text-center">
+									<!--投稿したユーザーとログインユーザーが同じだった場合-->
+									<% if @user == current_user %>
+										<%=link_to "編集する", edit_work_out_path(@work_out) %>
+										<%=link_to "削除する", work_out_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+									<% end %>
+								</div>
+							</div>
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>いいね</h3>
+										</div>
+										<div class="card-body">
+											
+										</div>
+									</div>
+								</div>
+							</div>
+							<!--コメント一覧-->
+							<div class="row mt-3">
+								<div class="col">
+									<div class="card">
+										<div class="card-header">
+											<h3>コメント</h3>
+										</div>
+										<div class="card-body p-2">
+											<% @comments.each do |comment| %>
+												<%= attachment_image_tag comment.user, :profile_image, format: "jpeg", fallback: "no-image.jpg", class: "rounded-circle" %>
+												<%= comment.user.name %>
+												<%= comment.body %>
+												<div class="col text-right">
+													<% if comment.user == current_user %>
+														<%=link_to "削除する", work_out_comments_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+													<% end %>
+												</div>
+											<% end %>
+										</div>
+									</div>
+								</div>
+							</div>
 
-<% if @user == current_user %>
-	<%=link_to "編集する", edit_work_out_path(@work_out) %>
-	<%=link_to "削除する", work_out_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+
+
+
+
+
+<%= form_for([@work_out,@new_comment], url: work_out_comments_path(@work_out,@new_comment), method: :post) do |f| %>
+
+	<div class="field">
+		<%= f.text_field :body %>
+	</div>
+
+	<div class="actions">
+		<%= f.submit "登録" %>
+	</div>
+
 <% end %>
+</div>
+</div>
+</div>
+</div>
