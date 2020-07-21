@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @work_outs = @user.work_outs
+    @work_outs = @user.work_outs.reverse_order
+    @comment = Comment.new
   end
 
   def edit

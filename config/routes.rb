@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :create, :new]
   resources :work_outs do
   	resource :favorites, only: [:create, :destroy]
+  	resource :comments, only: [:create, :destroy]
   end
 end
