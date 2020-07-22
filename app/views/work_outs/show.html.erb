@@ -151,7 +151,7 @@
 												<%= comment.body %>
 												<div class="col text-right">
 													<% if comment.user == current_user %>
-														<%=link_to "削除する", work_out_comments_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+														<%=link_to "削除", work_out_comments_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
 													<% end %>
 												</div>
 											<% end %>
