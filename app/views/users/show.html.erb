@@ -1,9 +1,42 @@
 <h1>My Page</h1>
-<%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no-image.jpg", class: "rounded-circle" %>
-<%= @user.name %>
-<% if @user == current_user %>
-	<%= link_to "プロフィール編集", edit_user_path(current_user) %>
-<% end %>
+<!--プロフィール-->
+<div class= "row">
+	<!--ユーザー情報-->
+	<div class="col-8 col-offset-2">
+		<div class="row my-3">
+			<div class="col text-center">
+				<%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no-image.jpg", class: "rounded-circle" %>
+				<%= @user.name %>
+			</div>
+			<!--ログインが自分か他人か-->
+			<div class="col text-center">
+				<% if @user == current_user %>
+					<%= link_to "プロフィール編集", edit_user_path(current_user) %>
+				<% elsif @user != current_user %>
+					<% if @user.followed_by?(current_user) %>
+						<%=link_to "フォローを外す", user_relationships_path(@user), method: :delete %>
+					<% else %>
+						<%=link_to "フォローする", user_relationships_path(@user), method: :post %>
+					<% end %>
+				<% end %>
+			</div>
+		</div>
+		<div class="row my-3">
+			<div class="col text-center">
+				フォロワー<br>
+				<%= @user.passive_relationships.count %>
+			</div>
+			<div class="col text-center">
+				フォロー<br>
+				<%= @user.active_relationships.count %>
+			</div>
+			<div class="col text-center">
+				いいね<br>
+				<%= @user.favorites.count %>
+			</div>
+		</div>
+	</div>
+</div>
 
 <div class= "row">
 	<% @work_outs.each do |work_out| %>
