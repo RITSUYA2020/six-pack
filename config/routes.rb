@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   root 'homes#top'
 
-  devise_for :users
+  devise_for :users, controllers: {
+  	sessions: 'users/sessions'
+  }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get 'users/:user_id/favorites' => 'favorites#show', as: 'user_favorites'
+  get '/users/:user_id/favorites' => 'favorites#show', as: 'user_favorites'
 
   resources :users, except: [:index, :create, :new] do
   	resource :relationships, only: [:create, :destroy]
   	get :follows
   	get :followers
   end
+
+  get "/users/:id/confirm" => "users#confirm", as: "users_confirm"
+  put "/users/:id/withdraw" => "users#withdraw", as: "users_withdraw"
 
   resources :work_outs do
   	resource :favorites, only: [:create, :destroy]
