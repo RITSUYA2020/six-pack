@@ -22,9 +22,17 @@ class UsersController < ApplicationController
   end
 
   def confirm
+    @user = User.find(params[:id])
   end
 
   def withdraw
+    @user = User.find(params[:id])
+    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    @user.update(is_deleted: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
   end
 
   def follows
