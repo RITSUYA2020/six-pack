@@ -3,6 +3,8 @@ class WorkOut < ApplicationRecord
   attachment :after_image
 
   has_many :favorites
+  #投稿をファボしたユーザーを直接アソシエーションで取得するため
+  has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user
   has_many :comments, dependent: :destroy
 

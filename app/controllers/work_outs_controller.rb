@@ -10,6 +10,7 @@ class WorkOutsController < ApplicationController
     @user = @work_out.user
     @new_comment = Comment.new
     @comments = @work_out.comments
+    @favorite_users = @work_out.favorite_users
   end
 
   def edit
@@ -45,6 +46,16 @@ class WorkOutsController < ApplicationController
       flash[:error] = '*の項目を入力してください。'
       render "new"
     end
+  end
+
+  #フォローしているユーザーのみタイムラインに表示
+  def following
+    @work_outs_all = WorkOut.all
+    @user = User.find(current_user.id)
+    #フォローしているユーザーを取得
+    @followings = @user.followings
+    #フォローしているユーザーのツイートを表示
+    @work_outs = @work_outs_all.where(user_id: @followings).reverse_order.page(params[:page]).per(10)
   end
 
   private
