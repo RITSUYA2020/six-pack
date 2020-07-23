@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get "/users/:id/confirm" => "users#confirm", as: "users_confirm"
   put "/users/:id/withdraw" => "users#withdraw", as: "users_withdraw"
+  get "/work_outs/following" => "work_outs#following", as: "work_outs_following"
 
   resources :work_outs do
   	resource :favorites, only: [:create, :destroy]

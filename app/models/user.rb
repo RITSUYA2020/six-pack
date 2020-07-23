@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :work_outs
   has_many :favorites
-  #ユーザーがファボしたツイートを直接アソシエーションで取得するため
+  #ユーザーがファボした投稿を直接アソシエーションで取得するため
   has_many :favorite_work_outs, through: :favorites, source: :work_out
   has_many :comments
 
@@ -28,7 +28,7 @@ class User < ApplicationRecord
   #フォローされる側のUserから見て、フォローしてくる側のUserを(中間テーブルを介して)集める。なので親はfollower_id(フォローされる側)
   has_many :passive_relationships, class_name: "Relationship", foreign_key: :follower_id
   #フォローされたユーザーを直接アソシエーションで取得するため
-  has_many :followers, through: :passive_relationships, source: :followng
+  has_many :followers, through: :passive_relationships, source: :following
   # ========================================================================================
 
   def followed_by?(user)
