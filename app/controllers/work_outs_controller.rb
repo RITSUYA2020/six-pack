@@ -9,7 +9,6 @@ class WorkOutsController < ApplicationController
     @work_out = WorkOut.find(params[:id])
     @user = @work_out.user
     @new_comment = Comment.new
-    @comments = @work_out.comments
     @favorite_users = @work_out.favorite_users
   end
 

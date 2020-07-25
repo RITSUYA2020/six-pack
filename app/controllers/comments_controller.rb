@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
 		@new_comment.work_out_id = params[:work_out_id]
 		@new_comment.user_id = current_user.id
 		if @new_comment.save
-			redirect_to request.referer
 		else
     		@user = @work_out.user
 			render template: "work_outs/show"
@@ -14,9 +13,12 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		comment = Comment.find_by(work_out_id: params[:work_out_id], user_id: current_user.id)
-		comment.destroy
-		redirect_to request.referer
+		@comment = Comment.find(params[:work_out_id])
+		@work_out = @comment.work_out
+		if @comment.user != current_user
+			redirect_to request.referer
+		end
+		@comment.destroy
 	end
 
 	private
