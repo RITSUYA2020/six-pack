@@ -1,7 +1,7 @@
 <div class="wrap">
 	<div class="container-fluid">
 		<div class= "row ml-1">
-			<h1>All Work Out</h1>
+			<h1>Friend's Work Out</h1>
 		</div>
 		<% @work_outs.each do |work_out| %>
 			<div class= "row justify-content-center">
@@ -63,7 +63,7 @@
 								<!-- いいね -->
 								<div class="col">
 									<div id="favorite-<%= work_out.id %>">
-										<%= render partial: 'favorites/favorite', locals: {work_out: work_out} %>
+										<%= render partial: 'favorites/favorite', locals: { work_out: work_out} %>
 									</div>
 								</div>
 							</div>

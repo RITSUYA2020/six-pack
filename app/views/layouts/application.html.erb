@@ -11,46 +11,59 @@
   </head>
 
   <body>
-    <div class= "container">
-      <div class= "row">
-        <% if user_signed_in? %>
-          <header class= "user_header">
-            <nav class="nav navbar-nav navbar-left">
-                <%= link_to "SixPack", root_path, class: "logo" %>
-            </nav>
-            <nav>
-              <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "All Work Outs", work_outs_path %></li>
-                <li><%= link_to "Friend's Work Out" %></li>
-                <li><%= link_to "My Page", user_path(current_user) %></li>
-                <li><%= link_to "Write Work Out", new_work_out_path %></li>
-                <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </nav>
-          </header>
-        <% else %>
-          <header class= "user_header">
-            <nav class="nav navbar-nav navbar-left">
-              <%= link_to "SixPack", root_path, class: "logo" %>
-            </nav>
-            <nav>
-              <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-                <li><%= link_to "Sign in", new_user_session_path %></li>
-              </ul>
-            </nav>
-          </header>
-        <% end %>
-      </div>
-    </div>
+    <header class= "header">
+      <nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top", style="background-color: #deb887;">
+        <div class= "container">
+          <div class= "navbar-header">
+            <%= link_to "SixPack", root_path, class: "logo" %>
+          </div>
 
-    <div class="container">
+          <% if user_signed_in? %>
+
+            <span class="u h7 text-white strong">
+              ようこそ！<%= current_user.name %>さん！
+            </span>
+
+            <ul class="nav navbar-nav">
+              <li class="nav-item mr-4">
+                <%= link_to "All Work Out", work_outs_path %>
+              </li>
+              <li class="nav-item mr-4">
+                <%= link_to "Friend's Work Out", work_outs_following_path %>
+              </li>
+              <li class="nav-item mr-4">
+                <%= link_to "My Page", user_path(current_user) %>
+              </li>
+              <li class="nav-item mr-4">
+                <%= link_to "Write Work Out", new_work_out_path %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul>
+
+          <% else %>
+
+              <ul class="nav navbar-nav">
+                <li class="nav-item mr-4">
+                  <%= link_to "Sign up", new_user_registration_path %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Sign in", new_user_session_path %>
+                </li>
+              </ul>
+
+          <% end %>
+
+        </div>
+      </nav>
+    </header>
+
       <main>
         <%= yield %>
       </main>
-    </div>
 
-    <div class="container">
+    <div class="container text-right mt-3">
       <footer>©2020 Wasaki Ritsuya </footer>
     </div>
   </body>
