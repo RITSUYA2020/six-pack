@@ -82,3 +82,9 @@ gem 'rubocop-rails', require: false
 
 # pagenate
 gem 'kaminari','~> 1.1.1'
+
+#本番環境でMySQLを利用するための設定
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
