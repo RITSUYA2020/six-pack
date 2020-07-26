@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @work_outs = @user.work_outs
+    @work_outs = @user.work_outs.reverse_order
+    @comment = Comment.new
   end
 
   def edit
@@ -21,13 +22,31 @@ class UsersController < ApplicationController
   end
 
   def confirm
+    @user = User.find(params[:id])
   end
 
   def withdraw
+    @user = User.find(params[:id])
+    #is_deletedカラムにフラグを立てる(defaultはfalse)
+    @user.update(is_deleted: true)
+    #ログアウトさせる
+    reset_session
+    flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
+    redirect_to root_path
+  end
+
+  def follows
+    @user = User.find(params[:user_id])
+    @users = @user.followings
+  end
+
+  def followers
+    @user = User.find(params[:user_id])
+    @users = @user.followers
   end
 
   private
   def user_params
-  	params.require(:user).permit(:name, :email)
+  	params.require(:user).permit(:name, :email, :profile_image)
   end
 end
