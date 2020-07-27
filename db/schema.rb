@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_115023) do
+ActiveRecord::Schema.define(version: 2020_07_20_110231) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "work_out_id", null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_115023) do
     t.integer "user_id", null: false
     t.integer "time", null: false
     t.integer "muscle_group", null: false
-    t.string "equipment", default: "", null: false
+    t.string "equipment"
     t.text "body"
     t.integer "effect", null: false
     t.integer "place", null: false
