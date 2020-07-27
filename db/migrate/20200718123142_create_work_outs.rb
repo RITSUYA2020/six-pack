@@ -5,7 +5,7 @@ class CreateWorkOuts < ActiveRecord::Migration[5.2]
       t.integer :time, null: false
       t.integer :muscle_group, null: false
       t.string :equipment, null: false, default: ""
-      t.text :body, null: false, default: ""
+      t.text :body
       t.integer :effect, null: false
       t.integer :place, null: false
       t.string :before_image_id
