@@ -47,6 +47,10 @@ class WorkOutsController < ApplicationController
     end
   end
 
+  def search
+    @work_outs = WorkOut.where(muscle_group: params[:search_target])
+  end
+
   #フォローしているユーザーのみタイムラインに表示
   def following
     @work_outs_all = WorkOut.all
@@ -59,6 +63,6 @@ class WorkOutsController < ApplicationController
 
   private
   def work_out_params
-    params.require(:work_out).permit(:time, :muscle_group, :muscle_group, :body, :effect, :place, :before_image, :after_image)
+    params.require(:work_out).permit(:time, :muscle_group, :equipment, :body, :effect, :place, :before_image, :after_image)
   end
 end

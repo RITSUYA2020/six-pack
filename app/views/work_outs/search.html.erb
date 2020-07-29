@@ -1,17 +1,7 @@
 <div class="wrap">
 	<div class="container-fluid">
-		<div class= "row">
-			<div class="col ml-1">
-				<h1>All Work Out(全<%= @work_outs.count %>件)</h1>
-			</div>
-			<div class="col text-right mt-3">
-				<% if user_signed_in? %>
-					<%= form_tag(work_outs_search_path, :method => 'get') do %>
-						<%= select_tag :search_target, options_for_select([["腹筋＆コア","abs_core"],["腕＆肩","arms_shoulders"],["大臀筋＆脚","gmax_legs"]]) %>
-						<%= submit_tag 'Search' %>
-					<% end %>
-				<% end %>
-			</div>
+		<div class= "row ml-1">
+			<h1>Search Work Out (全<%= @work_outs.count %>件)</h1>
 		</div>
 		<% @work_outs.each do |work_out| %>
 			<div class= "row justify-content-center">
