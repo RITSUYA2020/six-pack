@@ -8,8 +8,10 @@
 				<% if user_signed_in? %>
 					<%= form_tag(work_outs_search_path, :method => 'get') do %>
 						<%= select_tag :search_target, options_for_select([["腹筋＆コア","abs_core"],["腕＆肩","arms_shoulders"],["大臀筋＆脚","gmax_legs"]]) %>
-						<%= submit_tag 'Search' %>
+						<%= submit_tag 'Select' %>
 					<% end %>
+						<%#= text_field_tag :search_word %>
+						<%#= submit_tag 'Search' %>
 				<% end %>
 			</div>
 		</div>
@@ -77,9 +79,10 @@
 									</div>
 								</div>
 							</div>
-							<div class="row -2">
+							<div class="row">
 								<!-- タグ -->
-								<div class="col">
+								<div class="col mt-2">
+									タグ：<%= render 'work_outs/tag_list', tag_list: work_out.tag_list %>
 								</div>
 							</div>
 						</div>

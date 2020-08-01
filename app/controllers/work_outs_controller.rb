@@ -3,6 +3,10 @@ class WorkOutsController < ApplicationController
 
   def index
     @work_outs = WorkOut.all.reverse_order
+    #タグ絞り込み
+    if params[:tag_name]
+      @work_outs = WorkOut.tagged_with("#{params[:tag_name]}")
+    end
   end
 
   def show
@@ -49,6 +53,8 @@ class WorkOutsController < ApplicationController
 
   def search
     @work_outs = WorkOut.where(muscle_group: params[:search_target])
+    #word = params[:search_word]
+    #@work_outs = WorkOut.search(word)
   end
 
   #フォローしているユーザーのみタイムラインに表示
@@ -63,6 +69,6 @@ class WorkOutsController < ApplicationController
 
   private
   def work_out_params
-    params.require(:work_out).permit(:time, :muscle_group, :equipment, :body, :effect, :place, :before_image, :after_image)
+    params.require(:work_out).permit(:time, :muscle_group, :equipment, :body, :effect, :place, :before_image, :after_image, :tag_list)
   end
 end
