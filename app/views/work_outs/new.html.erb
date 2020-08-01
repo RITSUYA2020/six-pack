@@ -9,12 +9,12 @@
 			<%= form_for(@work_out) do |f| %>
 
 				<div class="field">
-					*<%= f.label :time, "時間" %>
+					<%= f.label :time, "時間" %><span class="text-danger">（必須）</span>
 					<%= f.text_field :time, autocomplete: "time", placeholder: "(例)15", class: "time" %>分
 				</div>
 
 				<div class="field">
-					*<%= f.label :muscle_group, "筋群" %>
+					<%= f.label :muscle_group, "筋群" %><span class="text-danger">（必須）</span>
 					<%= f.select :muscle_group, WorkOut.muscle_groups.keys.map {|k| [I18n.t("enums.work_out.muscle_group.#{k}"), k]}, class: "muscle_group" %>
 				</div>
 
@@ -29,12 +29,12 @@
 				</div>
 
 				<div class="field">
-					*<%= f.label :effect, "効果" %>
+					<%= f.label :effect, "効果" %><span class="text-danger">（必須）</span>
 					<%= f.select :effect, WorkOut.effects.keys.map {|k| [I18n.t("enums.work_out.effect.#{k}"), k]}, class: "effect" %>
 				</div>
 
 				<div class="field">
-					*<%= f.label :place, "場所" %>
+					<%= f.label :place, "場所" %><span class="text-danger">（必須）</span>
 					<%= f.select :place, WorkOut.places.keys.map {|k| [I18n.t("enums.work_out.place.#{k}"), k]}, class: "place" %>
 				</div>
 
