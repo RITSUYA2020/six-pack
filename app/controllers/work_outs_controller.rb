@@ -21,7 +21,7 @@ class WorkOutsController < ApplicationController
     if @work_out.update(work_out_params)
       redirect_to work_out_path(@work_out)
     else
-      flash[:error] = '*の項目を入力してください。'
+      flash[:error] = '(必須)の項目を入力してください。'
       render "edit"
     end
   end
@@ -42,7 +42,7 @@ class WorkOutsController < ApplicationController
     if @work_out.save
       redirect_to work_out_path(@work_out)
     else
-      flash[:error] = '*の項目を入力してください。'
+      flash[:error] = '(必須)の項目を入力してください。'
       render "new"
     end
   end
