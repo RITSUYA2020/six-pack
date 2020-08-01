@@ -82,15 +82,18 @@ gem 'jquery-rails'
 gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 
-#リーダブルコード
+# リーダブルコード
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 
 # pagenate
 gem 'kaminari','~> 1.1.1'
 
-#本番環境でMySQLを利用するための設定
+# 本番環境でMySQLを利用するための設定
 gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+# タグ付け
+gem 'acts-as-taggable-on', '~> 6.0'
