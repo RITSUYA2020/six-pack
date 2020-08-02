@@ -1,43 +1,52 @@
 <div class="wrap">
   <div class="container-fluid">
-    <div class= "row ml-1">
+    <div class= "row ml-1 mt-2">
       <h2>Sign up</h2>
     </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-
-        <div class="field">
-          <%= f.label :name, "名前" %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        
+        <div class= "row justify-content-center">
+          <div class="col-8 text-center">
+            <table class="table">
+              <thead>
+                <th></th>
+                <th></th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= f.label :name, "名前" %></td>
+                  <td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :sex, "性別" %></td>
+                  <td><%= f.select :sex, User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]} %></td>
+                </tr>
+                <tr>
+                  <td><%= f.label :email, "メールアドレス" %></td>
+                  <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+                </tr>
+                <tr>
+                    <td><%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %></td>
+                    <td><%= f.password_field :password, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                    <td><%= f.label :password_confirmation, "パスワード(確認用)" %></td>
+                    <td><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
+                </tr>
+                <tr>
+                  <td colspan="2"><%= f.submit "Sign up", class: "btn btn-outline-primary" %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-        <div class="field">
-          <%= f.label :sex, "性別" %><br />
-          <%= f.select :sex, User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]} %>
-        </div>
-
-        <div class="field">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %>
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation, "パスワード(確認用)" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-        </div>
-
-        <div class="actions">
-          <%= f.submit "Sign up" %>
-        </div>
       <% end %>
 
-      <%= render "devise/shared/links" %>
+      <h4>既に登録済みの方</h4>
+        <p><%= link_to "こちら", new_user_session_path, class: "underline" %>からログインしてください。</p>
 
   </div>
 </div>

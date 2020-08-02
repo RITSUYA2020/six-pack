@@ -14,7 +14,7 @@
 				</div>
 				<div class="col text-right">
 					<% if comment.user == current_user %>
-						<%=link_to "削除", work_out_comments_path(comment), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"} %>
+						<%=link_to "削除", work_out_comments_path(comment), method: :delete, remote: true, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-danger" %>
 					<% end %>
 				</div>
 			<% end %>

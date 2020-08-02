@@ -2,40 +2,42 @@
 
 <div class="wrap">
 	<div class="container-fluid">
-		<div class= "row">
-			<div class="col ml-1">
-				<div class="page-header">
+		<div class= "row justify-content-center">
+			<div class="col-8 border mt-3">
+				<div class="write_header p-1 border-bottom">
 					<h1>お問い合わせ</h1>
 				</div>
-
-				<% if @contact.errors.any? %>
-					<div class="alert alert-danger" role="alert">
-						<strong>入力内容にエラーがあります</strong>
-						<ul>
-							<% @contact.errors.each do |attr, msg| %>
-								<li><%= msg %></li>
-							<% end %>
-						</ul>
+				<div class="write_contact">
+					<div class="col mt-2">
+						<% if @contact.errors.any? %>
+							<div class="alert alert-danger m-2" role="alert">
+								<strong>入力内容にエラーがあります</strong>
+								<ul>
+									<% @contact.errors.each do |attr, msg| %>
+										<li><%= msg %></li>
+									<% end %>
+								</ul>
+							</div>
+						<% end %>
 					</div>
-				<% end %>
 
-				<table class="table">
-					<tr>
-						<th>名前<span class="text-danger">（必須）</span></th>
-						<td><%= f.text_field :name %></td>
-					</tr>
-					<tr>
-						<th>メールアドレス<span class="text-danger">（必須）</span></th>
-						<td><%= f.text_field :email %></td>
-					</tr>
-					<tr>
-						<th>お問い合わせ内容</th>
-						 <td><%= f.text_area :message %></td>
-					</tr>
-				</table>
+					<div class="col mt-2">
+						<%= f.label :name, "名前" %><span class="text-danger">（必須）</span><br>
+						<%= f.text_field :name %>
 
-				<%= f.submit '確認', class: 'btn btn-primary' %>
-
+					</div>
+					<div class="col mt-2">
+						<%= f.label :email, "メールアドレス" %><span class="text-danger">（必須）</span><br>
+						<%= f.text_field :email %>
+					</div>
+					<div class="col mt-2">
+						お問い合わせ内容
+						<%= f.text_area :message, class: "form-control" %>
+					</div>
+					<div class="text-center m-2">
+						<%= f.submit '確認', class: 'btn btn-outline-primary' %>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
