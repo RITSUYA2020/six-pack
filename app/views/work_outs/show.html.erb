@@ -1,7 +1,7 @@
 <div class="wrap">
 	<div class="container-fluid">
-		<div class="row ml-1">
-			<h1>WorkOuts#show</h1>
+		<div class="row ml-1 mt-2">
+			<h2>Read WorkOut</h2>
 		</div>
 			<!--プロフィール-->
 			<div class="row justify-content-center">
@@ -161,8 +161,8 @@
 				<div class="col text-center">
 					<!--投稿したユーザーとログインユーザーが同じだった場合-->
 					<% if @user == current_user %>
-						<%=link_to "編集する", edit_work_out_path(@work_out) %>
-						<%=link_to "削除する", work_out_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"} %>
+						<%=link_to "編集する", edit_work_out_path(@work_out), class: "btn btn-outline-success" %>
+						<%=link_to "削除する", work_out_path(@work_out), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-outline-danger" %>
 					<% end %>
 				</div>
 			</div>
@@ -200,7 +200,7 @@
 						</div>
 
 						<div class="actions text-right">
-							<%= f.submit "登録" %>
+							<%= f.submit "登録", class: "btn btn-outline-primary" %>
 						</div>
 
 					<% end %>

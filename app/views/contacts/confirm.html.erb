@@ -1,8 +1,8 @@
 <div class="wrap">
 	<div class="container-fluid">
-		<div class= "row">
-			<div class="col ml-1">
-				<div class="page-header">
+		<div class= "row justify-content-center">
+			<div class="col-8 border mt-3">
+				<div class="write_header p-1 border-bottom">
 				  <h1>お問い合わせ</h1>
 				</div>
 
@@ -31,8 +31,9 @@
 						</tr>
 					</table>
 
-					<%= f.submit '送信', :class => 'btn btn-primary' %>
-
+					<div class="text-center m-2">
+						<%= f.submit '送信', :class => 'btn btn-outline-primary' %>
+					</div>
 				<% end %>
 
 			</div>

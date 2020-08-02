@@ -1,31 +1,37 @@
-<h1>Edit Profile</h1>
+<div class="wrap">
+	<div class="container-fluid">
+		<div class= "row ml-1">
+			<h1>Edit Profile</h1>
+		</div>
+		<div class= "row justify-content-center">
 
-<p><%= flash[:error] %></p>
+			<p><%= flash[:error] %></p>
 
-<%=form_for(@user) do |f| %>
+			<%=form_for(@user) do |f| %>
 
-	<div class="field">
-		<%= f.label :profile_image, "プロフィール画像" %>
-		<%= f.attachment_field :profile_image, class: "profile_image" %>
+				<div class="col mt-3">
+					<%= f.label :profile_image, "プロフィール画像" %>
+					<%= f.attachment_field :profile_image, class: "profile_image" %>
+				</div>
+
+				<div class="col text-center mt-3">
+					<%= f.label :name, "名前" %>
+					<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+				</div>
+
+				<div class="col text-center mt-3">
+					<%= f.label :email, "メールアドレス" %>
+					<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+				</div>
+
+				<div class="col text-center mt-3">
+			    	<%= f.submit "編集内容を保存する", class: "btn btn-primary btn-sm mr-2" %>
+			  		<%= link_to "退会する",users_confirm_path, class: "btn btn-danger btn-sm" %>
+			  	</div>
+
+			<% end %>
+
+		</div>
 	</div>
-
-	<div class="field">
-		<%= f.label :name, "名前" %><br />
-		<%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-	</div>
-
-	<div class="field">
-		<%= f.label :email, "メールアドレス" %><br />
-		<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-	</div>
-
-	<div class="actions">
-    	<%= f.submit "編集内容を保存する" %>
-  	</div>
-
-  	<div class="actions">
-  		<%= link_to "退会する",users_confirm_path %>
-  	</div>
-
-<% end %>
+</div>
 
