@@ -2,7 +2,7 @@ class WorkOutsController < ApplicationController
   # before_action :authenticate_user!
 
   def index
-    @work_outs = WorkOut.all.reverse_order
+    @work_outs = WorkOut.page(params[:page]).per(5).reverse_order
     #タグ絞り込み
     if params[:tag_name]
       @work_outs = WorkOut.tagged_with("#{params[:tag_name]}")
@@ -52,14 +52,14 @@ class WorkOutsController < ApplicationController
   end
 
   def search
-    @work_outs = WorkOut.where(muscle_group: params[:search_target])
+    @work_outs = WorkOut.where(muscle_group: params[:search_target]).page(params[:page]).per(5).reverse_order
     #word = params[:search_word]
     #@work_outs = WorkOut.search(word)
   end
 
   #フォローしているユーザーのみタイムラインに表示
   def following
-    @work_outs_all = WorkOut.all
+    @work_outs_all = WorkOut.page(params[:page]).per(5)
     @user = User.find(current_user.id)
     #フォローしているユーザーを取得
     @followings = @user.followings

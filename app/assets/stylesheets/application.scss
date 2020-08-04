@@ -13,3 +13,89 @@
  */
 
 @import "bootstrap";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+header {
+	width: 100%;
+	height: 70px;
+	background-color: #f4a460;
+}
+
+.nav-list {
+	float: left;
+	line-height: 70px;
+	list-style: none;
+	font-size: 20px;
+}
+
+.nav-list a {
+	color: #fafafa;
+}
+
+#top {
+	background-image: url(pexels-li-sun.jpg);
+	background-size: cover;
+	background-position: bottom;
+	width: 100%;
+	height: 650px;
+	text-align: center;
+	color: #ffa500;
+}
+
+.top-title {
+	padding-top: 50px;
+	font-size: 84px;
+}
+
+.top-text {
+	font-size: 40px;
+}
+
+.heading {
+	padding-top: 50px;
+	text-align: center;
+	font-size: 32px;
+}
+
+.heading-text {
+	padding-top: 30px;
+	text-align: center;
+	font-size: 16px;
+}
+
+.heading::after {
+	content: "";
+	display: block;
+	width: 70px;
+	height: 3px;
+	margin: 8px auto 0 auto;
+	background-color: #ec715f;
+}
+
+.footer {
+	height: 80px;
+	width: 100%;
+	background-color: #f4a460;
+	line-height: 60px;
+}
+
+.copyright {
+	font-size: 20px;
+	color: #fafafa;
+	text-align: center;
+}

@@ -1,7 +1,7 @@
 <div class="wrap">
 	<div class="container-fluid">
 		<div class= "row ml-1 mt-2">
-			<h2>Search Work Out (全<%= @work_outs.count %>件)</h2>
+			<h2>Search Work Out</h2>
 		</div>
 		<% @work_outs.each do |work_out| %>
 			<div class= "row justify-content-center">
@@ -83,5 +83,10 @@
 				</div>
 			</div>
 		<% end %>
+		<div class= "row">
+			<div class="col">
+				<%= paginate @work_outs %>
+			</div>
+		</div>
 	</div>
 </div>
