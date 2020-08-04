@@ -17,7 +17,7 @@ class FavoritesController < ApplicationController
 
   def show
   	@user = User.find(params[:user_id])
-  	@favorite_work_outs = @user.favorite_work_outs
+  	@favorite_work_outs = @user.favorite_work_outs.page(params[:page]).per(5).reverse_order
   end
 
 end
