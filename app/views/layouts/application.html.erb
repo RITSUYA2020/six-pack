@@ -6,8 +6,9 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -40,6 +41,9 @@
               </li>
             <% else %>
               <li class="nav-list mr-4">
+                <%= link_to "Contact", contacts_new_path %>
+              </li>
+              <li class="nav-list mr-4">
                 <%= link_to "Sign up", new_user_registration_path %>
               </li>
               <li class="nav-list">
@@ -56,13 +60,5 @@
       <%= yield %>
     </main>
 
-    <!--======== footer ========-->
-    <% if user_signed_in? %>
-      <footer>
-        <nav class="footer">
-          <p class="copyright">©2020 Wasaki Ritsuya</p>
-        </nav>
-      </footer>
-    <% end %>
   </body>
 </html>

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_action :authenticate_user!
 
 	def create
 		@work_out = WorkOut.find(params[:work_out_id])

@@ -1,75 +1,52 @@
 ja:
-    activerecord:
-      attributes:
-        user:
-          email: "メールアドレス"
-          name: "名前"
-          password: "パスワード"
-          password_confirmation: "パスワード(確認用)"
-          sex: "性別"
-          profile_image: "プロフィール画像"
-        work_out:
-          time: "時間"
-          muscle_group: "筋群"
-          equipment: "器具"
-          body: "内容"
-          effect: "効果"
-          place: "場所"
-          before_image: "ビフォー画像"
-          after_image: "アフター画像"
-    enums:
+  activerecord:
+    attributes:
       user:
-        sex:
-          unknown: '答えない'
-          male: '男性'
-          female: '女性'
-          others: 'その他'
+        email: "メールアドレス"
+        name: "名前"
+        password: "パスワード"
+        password_confirmation: "パスワード(確認用)"
+        sex: "性別"
+        profile_image: "プロフィール画像"
       work_out:
-        muscle_group:
-          abs_core: '腹筋＆コア'
-          arms_shoulders: '腕＆肩'
-          gmax_legs: '大臀筋＆脚'
-        effect:
-          too_easy: '楽すぎる'
-          very_easy: 'とても楽'
-          somewhat_easy: 'やや楽'
-          just_right: 'ちょうどよい'
-          rather_tight: 'ややきつい'
-          tight: 'きつい'
-          very_tight: 'とてもきつい'
-          too_tight: 'きつすぎる'
-          my_limit: '自分の限界'
-        place:
-          gym: 'ジム'
-          home: 'ホーム'
-          outdoors: '屋外'
-    views:
-      pagination:
-        first: <i class="fas fa-angle-double-left"></i>
-        last: <i class="fas fa-angle-double-right"></i>
-        previous: <i class="fas fa-angle-left"></i>
-        next: <i class="fas fa-angle-right"></i>
-        truncate: "..."
-    devise:
-      failure:
-        already_authenticated: "既にログイン済みです。"
-        # inactive: "Your account is not activated yet."
-        invalid: "メールアドレスまたはパスワードが正しくありません。"
-        not_found_in_database: "メールアドレスまたはパスワードが正しくありません。"
-        # timeout: "Your session expired. Please sign in again to continue."
-        unauthenticated: "続けるにはログインが必要です。"
-    registrations:
-      signed_up: "会員登録が完了しました。ようこそSixPackへ！"
-      updated: "パスワードの更新が完了しました。"
-    sessions:
-      signed_in: "ログインが完了しました。"
-      signed_out: "ログアウトが完了しました。"
-      already_signed_out: "ログアウトが完了しました。"
-    errors:
-      messages:
-        already_confirmed: "メールアドレスは既に登録されています。"
-        # not_found: "not found"
-        # not_locked: "was not locked"
-        not_saved:
-          one: "エラーが発生しました。以下ご確認お願いいたします。"
-          other: "エラーが発生しました。以下ご確認お願いいたします。"
+        time: "時間"
+        muscle_group: "筋群"
+        equipment: "器具"
+        body: "内容"
+        effect: "効果"
+        place: "場所"
+        before_image: "ビフォー画像"
+        after_image: "アフター画像"
+  enums:
+    user:
+      sex:
+        unknown: '答えない'
+        male: '男性'
+        female: '女性'
+        others: 'その他'
+    work_out:
+      muscle_group:
+        abs_core: '腹筋＆コア'
+        arms_shoulders: '腕＆肩'
+        gmax_legs: '大臀筋＆脚'
+      effect:
+        too_easy: '楽すぎる'
+        very_easy: 'とても楽'
+        somewhat_easy: 'やや楽'
+        just_right: 'ちょうどよい'
+        rather_tight: 'ややきつい'
+        tight: 'きつい'
+        very_tight: 'とてもきつい'
+        too_tight: 'きつすぎる'
+        my_limit: '自分の限界'
+      place:
+        gym: 'ジム'
+        home: 'ホーム'
+        outdoors: '屋外'
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
+      truncate: "..."
