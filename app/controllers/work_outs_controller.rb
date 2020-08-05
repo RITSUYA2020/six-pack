@@ -1,5 +1,5 @@
 class WorkOutsController < ApplicationController
-  # before_action :authenticate_user!
+   before_action :authenticate_user!
 
   def index
     @work_outs = WorkOut.page(params[:page]).per(5).reverse_order
