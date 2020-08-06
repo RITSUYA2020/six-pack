@@ -6,12 +6,6 @@
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-      <% if @user %>
-        <div class="alert alert-danger m-2" role="alert">
-          <%= flash[:error] %>
-        </div>
-      <% end %>
-
       <div class= "row justify-content-center">
         <div class="col-8 text-center">
           <table class="table">

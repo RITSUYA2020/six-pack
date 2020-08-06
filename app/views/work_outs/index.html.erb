@@ -12,8 +12,8 @@
 						<%#= text_field_tag :search_word %>
 						<%#= submit_tag 'Search' %>
 			</div>
-		
 		</div>
+
 		<% @work_outs.each do |work_out| %>
 			<div class= "row justify-content-center">
 				<!-- work_out本体 -->
@@ -96,7 +96,7 @@
 			</div>
 		<% end %>
 		<div class="row">
-			<div class="mx-auto">
+			<div class="mx-auto mb-3">
 				<%= paginate @work_outs %>
 			</div>
 		</div>
