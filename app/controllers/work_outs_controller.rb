@@ -23,6 +23,7 @@ class WorkOutsController < ApplicationController
   def update
     @work_out = WorkOut.find(params[:id])
     if @work_out.update(work_out_params)
+      flash[:notice] = '編集を保存しました。'
       redirect_to work_out_path(@work_out)
     else
       flash[:error] = '(必須)の項目を入力してください。'
@@ -32,8 +33,10 @@ class WorkOutsController < ApplicationController
 
   def destroy
     work_out = WorkOut.find(params[:id])
-    work_out.destroy
-    redirect_to work_outs_path
+    if work_out.destroy
+      flash[:alert] = '投稿を削除しました。'
+      redirect_to work_outs_path
+    end
   end
 
   def new
@@ -44,6 +47,7 @@ class WorkOutsController < ApplicationController
     @work_out = WorkOut.new(work_out_params)
     @work_out.user_id = current_user.id
     if @work_out.save
+      flash[:notice] = '投稿が完了しました。'
       redirect_to work_out_path(@work_out)
     else
       flash[:error] = '(必須)の項目を入力してください。'

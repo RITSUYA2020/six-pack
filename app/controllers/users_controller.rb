@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
   	if @user.update(user_params)
+      flash[:notice] = 'プロフィールの編集を保存しました。'
   		redirect_to user_path(current_user)
   	else
   		flash[:error] = '名前とメールアドレスを入力してください。'
