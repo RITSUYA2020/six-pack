@@ -1,19 +1,17 @@
 <div class="wrap">
 	<div class="container-fluid">
+		<%= render 'layouts/flashes' %>
 		<div class= "row">
 			<div class="col ml-1 mt-2">
 				<h2>All Work Out</h2>
 			</div>
 			<div class="col text-right mt-3">
-					<%= form_tag(work_outs_search_path, :method => 'get') do %>
-						<%= select_tag :search_target, options_for_select([["腹筋＆コア","abs_core"],["腕＆肩","arms_shoulders"],["大臀筋＆脚","gmax_legs"]]), class: "mr-3" %>
-						<%= submit_tag 'Search', class: "btn btn-outline-info" %>
-					<% end %>
-						<%#= text_field_tag :search_word %>
-						<%#= submit_tag 'Search' %>
+				<%= form_tag(work_outs_search_path, :method => 'get') do %>
+					<%= select_tag :search_target, options_for_select([["腹筋＆コア","abs_core"],["腕＆肩","arms_shoulders"],["大臀筋＆脚","gmax_legs"]]), class: "mr-3" %>
+					<%= submit_tag 'Search', class: "btn btn-outline-info" %>
+				<% end %>
 			</div>
 		</div>
-
 		<% @work_outs.each do |work_out| %>
 			<div class= "row justify-content-center">
 				<!-- work_out本体 -->

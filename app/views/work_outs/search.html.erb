@@ -1,14 +1,15 @@
 <div class="wrap">
 	<div class="container-fluid">
+		<%= render 'layouts/flashes' %>
 		<div class= "row ml-1 mt-2">
 			<h2>Search Work Out</h2>
 		</div>
 		<% @work_outs.each do |work_out| %>
 			<div class= "row justify-content-center">
 				<!-- work_out本体 -->
-				<div class= "col-md-8  my-3 box border">
+				<div class= "col-md-8  my-3 border">
 					<!-- ヘッダー -->
-					<div class= "row justify-content-center border-bottom">
+					<div class= "row justify-content-center border-bottom" style="background-color: #f5f5f5;">
 						<div class="col-6 pl-0 align-self-center text-left">
 							<%= link_to user_path(work_out.user) do %>
 								<%= attachment_image_tag work_out.user, :profile_image, :fill, 63, 63, format: "jpeg", fallback: "no-image.jpg", class: "rounded-circle" %>
@@ -67,24 +68,25 @@
 									</div>
 								</div>
 							</div>
-							<div class="row -2">
+							<div class="row">
 								<!-- タグ -->
-								<div class="col">
+								<div class="col mt-2">
+									タグ：<%= render 'work_outs/tag_list', tag_list: work_out.tag_list %>
 								</div>
 							</div>
 						</div>
 						<div class="row my-3 mx-auto">
 							<!-- 詳細ページへのボタン -->
 							<div class="col-12 text-center">
-								<%=link_to "Read More!", work_out_path(work_out) %>
+								<%=link_to "Read More!", work_out_path(work_out), class: "btn btn-outline-secondary" %>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		<% end %>
-		<div class= "row">
-			<div class="col">
+		<div class="row">
+			<div class="mx-auto mb-3">
 				<%= paginate @work_outs %>
 			</div>
 		</div>

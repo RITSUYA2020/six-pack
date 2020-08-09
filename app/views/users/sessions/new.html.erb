@@ -1,9 +1,9 @@
 <div class="wrap">
   <div class="container-fluid">
+    <%= render 'layouts/flashes' %>
     <div class= "row ml-1 mt-2">
       <h2>Login</h2>
     </div>
-
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
       <div class= "row justify-content-center">
