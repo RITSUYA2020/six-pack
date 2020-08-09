@@ -64,6 +64,7 @@ header {
 
 .top-text {
 	font-size: 40px;
+	margin-bottom: 380px;
 }
 
 #about {
@@ -106,26 +107,6 @@ header {
 	font-size: 20px;
 	color: #fafafa;
 	text-align: center;
-}
-
-.image1 {
-  background-image: image-url("image1.jpg");
-}
-
-.image2 {
-  background-image: image-url("image2.jpg");
-}
-
-.image3 {
-  background-image: image-url("image3.jpg");
-}
-
-.image4 {
-  background-image: image-url("image4.jpg");
-}
-s
-.image5 {
-  background-image: image-url("image5.jpg");
 }
 
 .production-group {
@@ -200,4 +181,24 @@ s
   transition: .3s;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+/*下からフェードイン*/
+.fade-in-bottom {
+   opacity: 0;
+   animation-name: fadein-bottom;
+   animation-duration: 1.5s;
+   animation-timing-function: ease-out;
+   animation-fill-mode: forwards;
+   animation-delay: .3s;
+}
+@keyframes fadein-bottom {
+   0% {
+      opacity: 0;
+      transform: translateY(20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateY(0);
+   }
 }
