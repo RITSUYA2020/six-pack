@@ -1,35 +1,120 @@
 <div class="wrap">
+	<div id="all">
 	<!--======== Top ========-->
 	<section id="top">
 		<div class="container-fluid">
 			<h1 class="top-title fade-in-bottom">SIXPACK</h1>
-			<p class="top-text fade-in-bottom">Let's work out!!</p>
+		</div>
+	</section>
+	<!--======== catch-copy ========-->
+	<section id="catch-copy">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-6 offset-3">
+						<h2 class="catch-copy_title">Let's Work Out!!</h2>
+						<p class="txt_size_m">新規登録ですぐに使用できます</p>
+							<%= link_to "いますぐ新規登録", new_user_registration_path, class:"btn-gradient-radius" %>
+				</div>
+			</div>
 		</div>
 	</section>
 	<!--========= About ========-->
 	<section id="about">
 		<div class="container-fluid">
-			<h2 class="heading">SIXPACK</h2>
+			<div class="heading-box">
+				<h2 class="heading-title">SIXPACK</h2>
 				<p class="heading-text">
-					最近、ちょっと太ってきたな...もっと筋肉つけたいな...<br>
-					よし、筋トレしよう！<br>
-					だけど、いざ始めると苦しくて面倒くさくなって3日坊主で終わってしまう...<br>
-					このサイトは筋トレに取り組む人同士の交流を促すことで、<span class="under">筋トレのモチベーションアップに繋げ、</span><br>理想の体型を手に入れる<span class="under">スーパーマッチョなサイト</span>です！<br>
+					SIXPACKは筋トレに取り組む人同士の交流を促すことで、<span class="under">筋トレのモチベーションアップに繋げ、</span><br>理想の体型を手に入れる<span class="under">スーパーマッチョなサイト</span>です！<br>
 				</p>
+			</div>
 		</div>
-		<div class="production-group clearfix">
-			<div class="production bg-1 sp-none"></div>
-			<div class="production bg-2"></div>
-			<div class="production bg-3 sp-none"></div>
-			<div class="production bg-4"></div>
-			<div class="production bg-5 sp-none"></div>
-			<div class="production bg-6"></div>
+	</section>
+	<!--========= Intro ========-->
+	<section id="intro">
+		<div class="container-fluid">
+			<h2 class="heading-title pb-3">機能</h2>
+			<div class="row pb-5">
+				<div class="col-6">
+					<div class="intro_box slide-bottom-1 show">
+						<div class="intro_txt_box">
+							<div class="row">
+								<p class="txt_color intro_count">1.</p>
+								<p class="txt_size_l"><span class="marker">投稿</span></p>
+							</div>
+							<p class="txt_size_m">
+								筋トレに関して投稿でき、他のユーザーの投稿も閲覧できます。<br>
+								また、投稿をタグ付けできるようにしています。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="intro_box slide-bottom-2 show">
+						<div class="intro_txt_box">
+							<div class="row">
+								<p class="txt_color intro_count">2.</p>
+								<p class="txt_size_l"><span class="marker">いいね</span>と<span class="marker">コメント</span></p>
+							</div>
+							<p class="txt_size_m">
+								他のユーザーの投稿をいいねすることができます。<br>
+								投稿に対してコメントも登録することができます。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row pb-5">
+				<div class="col-6">
+					<div class="intro_box slide-bottom-3 show">
+						<div class="intro_txt_box">
+							<div class="row">
+								<p class="txt_color intro_count">3.</p>
+								<p class="txt_size_l"><span class="marker">フォロー</span></p>
+							</div>
+							<p class="txt_size_m">
+								他のユーザーをフォローでき、「Friend's Work Out」ページで<br>
+								フォローしているユーザーのみを一覧で表示するようにしています。
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="intro_box slide-bottom-4 show">
+						<div class="intro_txt_box">
+							<div class="row">
+								<p class="txt_color intro_count">4.</p>
+								<p class="txt_size_l"><span class="marker">検索</span></p>
+							</div>
+							<p class="txt_size_m">
+								投稿を「腹筋＆コア」「腕＆肩」「大臀筋＆脚」の3種類の筋群で<br>
+								検索することができます。
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row pb-5">
+				<div class="col-6 offset-3">
+					<div class="intro_box slide-bottom-5 show">
+						<div class="intro_txt_box">
+							<div class="row">
+								<p class="txt_color intro_count">5.</p>
+								<p class="txt_size_l"><span class="marker">お問い合わせ</span></p>
+							</div>
+							<p class="txt_size_m">
+								お問い合わせの際は「Contact」ページから
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 	<!--======== footer ========-->
 	<footer>
-        <nav class="footer">
-          <p class="copyright">© Copyright 2020 SIXPACK, inc. All rights reserved.</p>
-        </nav>
+	    <nav class="footer">
+	      <p class="copyright">© Copyright 2020 SIXPACK, inc. All rights reserved.</p>
+	    </nav>
 	</footer>
+	</div>
 </div>
