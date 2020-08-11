@@ -20,6 +20,8 @@ ja:
               blank: "を入力してください"
             name:
               blank: "を入力してください"
+            password_confirmation:
+              confirmation: "が違います。"
   errors:
     messages:
       already_confirmed: "メールアドレスは既に登録されています。"
