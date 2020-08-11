@@ -10,7 +10,9 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require css/lightbox
  */
+
 
 @import "bootstrap";
 
@@ -268,4 +270,23 @@ header {
    opacity: 0;
    transform: translateY(20px);
    transition: all 1.3s 1.5s ease-out;
+}
+
+.start {
+  background: #FFF;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9000;
+}
+.start p {
+  position: fixed;
+  left: 43%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 9999;
+  width: 280px;
 }
